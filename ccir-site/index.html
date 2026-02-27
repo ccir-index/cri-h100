@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCIR — Compute Credit Index Research</title>
+    <meta name="description" content="Open-methodology analytical infrastructure for GPU-backed credit markets. CRI-H100: independently verifiable GPU rental rate index.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1a1a;
+            --paper: #fafaf8;
+            --rule: #d4d0c8;
+            --muted: #6b6560;
+            --accent: #2c5f2d;
+            --accent-light: #e8efe8;
+            --mono: 'DM Mono', 'Consolas', monospace;
+            --serif: 'Source Serif 4', 'Georgia', serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--serif);
+            color: var(--ink);
+            background: var(--paper);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* -- Header -- */
+        header {
+            border-bottom: 1px solid var(--rule);
+            padding: 2rem 0;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .mark {
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        h1 {
+            font-family: var(--serif);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-top: 0.25rem;
+            letter-spacing: -0.01em;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 1.05rem;
+            margin-top: 0.35rem;
+            font-style: italic;
+        }
+
+        /* -- Sections -- */
+        section {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        a:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        /* -- Index card -- */
+        .index-card {
+            background: #fff;
+            border: 1px solid var(--rule);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .index-card .label {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .index-card .value {
+            font-family: var(--mono);
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: var(--ink);
+            margin-top: 0.25rem;
+        }
+
+        .index-card .meta {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-top: 0.5rem;
+        }
+
+        .burn-in-note {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--muted);
+            background: var(--accent-light);
+            padding: 0.75rem 1rem;
+            margin-top: 0.75rem;
+            border-left: 2px solid var(--accent);
+        }
+
+        /* -- Spec table -- */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .spec-table td {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--rule);
+            font-size: 0.95rem;
+            vertical-align: top;
+        }
+
+        .spec-table td:first-child {
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--muted);
+            width: 160px;
+            padding-right: 1.5rem;
+        }
+
+        /* -- Document list -- */
+        .doc-list {
+            list-style: none;
+        }
+
+        .doc-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--rule);
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .doc-list li:last-child {
+            border-bottom: none;
+        }
+
+        .doc-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .doc-version {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        .doc-desc {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-top: 0.15rem;
+        }
+
+        /* -- Footer -- */
+        footer {
+            padding: 2rem 0;
+            border-top: 1px solid var(--rule);
+        }
+
+        .footer-content {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--muted);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        /* -- Responsive -- */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.4rem; }
+            .spec-table td:first-child { width: 120px; }
+            .doc-list li { flex-direction: column; gap: 0.15rem; }
+            .footer-content { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="mark">CCIR</div>
+        <h1>Compute Credit Index Research</h1>
+        <div class="subtitle">Open-methodology analytical infrastructure for GPU-backed credit markets</div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+
+        <section>
+            <h2>CRI-H100</h2>
+            <p>
+                CRI-H100 is a weekly index measuring the trailing 7-day median $/GPU-hour for NVIDIA H100 SXM
+                on-demand rental listings on the US marketplace. It is designed for reference citation in credit
+                agreements, loan covenants, and collateral valuation frameworks.
+            </p>
+            <p>
+                The index is calculated from publicly available data, published under an open methodology,
+                and independently verifiable by any third party. Governance is designed with reference to the
+                <a href="https://www.iosco.org/library/pubdocs/pdf/IOSCOPD415.pdf">IOSCO Principles for Financial Benchmarks</a>.
+            </p>
+
+            <div class="index-card">
+                <div class="label">CRI-H100 — Current Status</div>
+                <div class="value">Burn-in Period</div>
+                <div class="meta">Data collection commenced February 2026</div>
+                <div class="burn-in-note">
+                    The index is in its initial data collection period. Daily snapshots are being archived 
+                    across 9 GPU models. The first published index value will be announced here when the 
+                    minimum observation threshold is met.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Methodology</h2>
+            <table class="spec-table">
+                <tr>
+                    <td>Data source</td>
+                    <td>Vast.ai public API — no authentication required</td>
+                </tr>
+                <tr>
+                    <td>Target GPU</td>
+                    <td>NVIDIA H100 SXM</td>
+                </tr>
+                <tr>
+                    <td>Geography</td>
+                    <td>United States</td>
+                </tr>
+                <tr>
+                    <td>Quality filters</td>
+                    <td>Reliability ≥ 0.90, active within 7 days, unrented</td>
+                </tr>
+                <tr>
+                    <td>Outlier removal</td>
+                    <td>Trimmed mean ± 2.5σ</td>
+                </tr>
+                <tr>
+                    <td>Calculation</td>
+                    <td>Trailing 7-day median $/GPU-hour</td>
+                </tr>
+                <tr>
+                    <td>Publication</td>
+                    <td>Weekly — Thursdays</td>
+                </tr>
+                <tr>
+                    <td>Reproducibility</td>
+                    <td>Fully open-source — any party can independently verify any published value</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Documents</h2>
+            <ul class="doc-list">
+                <li>
+                    <div>
+                        <div class="doc-title"><a href="https://github.com/ccir-index/cri-h100/blob/main/METHODOLOGY-v1.1.0.md">CCIR Methodology</a></div>
+                        <div class="doc-desc">Full technical specification for CRI-H100 index calculation</div>
+                    </div>
+                    <div class="doc-version">v1.1.0</div>
+                </li>
+                <li>
+                    <div>
+                        <div class="doc-title"><a href="https://github.com/ccir-index/cri-h100/blob/main/GOVERNANCE-v1_0.md">Governance Framework</a></div>
+                        <div class="doc-desc">Administrator framework, change control, fallback waterfall, IOSCO alignment</div>
+                    </div>
+                    <div class="doc-version">v1.0</div>
+                </li>
+                <li>
+                    <div>
+                        <div class="doc-title"><a href="https://github.com/ccir-index/cri-h100">Data Repository</a></div>
+                        <div class="doc-desc">Daily snapshots, calculation pipeline, verification script, audit trail</div>
+                    </div>
+                    <div class="doc-version">GitHub</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Multi-Model Data Archive</h2>
+            <p>
+                CCIR collects daily snapshots across multiple GPU generations to support cross-generational
+                depreciation curve construction. The Vast.ai API provides real-time snapshots only — 
+                historical data cannot be collected retroactively.
+            </p>
+            <table class="spec-table">
+                <tr><td>H100 SXM</td><td>Primary index — CRI-H100</td></tr>
+                <tr><td>A100 SXM / PCIe</td><td>Depreciation curve — A100→H100 transition</td></tr>
+                <tr><td>H200 / H200 NVL</td><td>Next-generation transition tracking</td></tr>
+                <tr><td>V100</td><td>Long-horizon depreciation (2+ generations)</td></tr>
+                <tr><td>L40S</td><td>Inference-class GPU market</td></tr>
+                <tr><td>RTX 4090</td><td>Consumer GPU market context</td></tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Use Cases</h2>
+            <p>
+                CRI-H100 is designed for credit market applications where an independent, auditable
+                rental rate reference is required:
+            </p>
+            <table class="spec-table">
+                <tr><td>Covenant triggers</td><td>Mechanical, non-discretionary triggers linked to an external market reference</td></tr>
+                <tr><td>Collateral valuation</td><td>Standardized methodology for marking GPU collateral to market</td></tr>
+                <tr><td>Stress testing</td><td>Floor reference for scenarios where borrowers lose enterprise contracts</td></tr>
+                <tr><td>ABS structuring</td><td>Performance monitoring, early amortization triggers, overcollateralization tests</td></tr>
+                <tr><td>Rating agency input</td><td>Independent data source meeting post-LIBOR governance standards</td></tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Contact</h2>
+            <p>
+                <a href="mailto:research@ccir.io">research@ccir.io</a>
+            </p>
+            <p style="font-size: 0.95rem; color: var(--muted);">
+                Licensing inquiries, pre-transaction audit coordination, methodology questions, 
+                and complaints should be directed to this address.
+            </p>
+        </section>
+
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <span>© 2026 Compute Credit Index Research</span>
+            <span>Code: MIT · Methodology: CC BY 4.0</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
