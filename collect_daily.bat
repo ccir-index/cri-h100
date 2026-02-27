@@ -33,7 +33,9 @@ git add data\archive\*.json data\archive\*.meta.json >> logs\collect.log 2>&1
 git add data\h100-sxm-us\*.csv data\h100-sxm-us\*.meta.json >> logs\collect.log 2>&1
 git add data\a100-sxm-us\*.csv data\a100-sxm-us\*.meta.json >> logs\collect.log 2>&1
 git add data\a100-pcie-us\*.csv data\a100-pcie-us\*.meta.json >> logs\collect.log 2>&1
-git add data\h200-sxm-us\*.csv data\h200-sxm-us\*.meta.json >> logs\collect.log 2>&1
+git add data\h200-us\*.csv data\h200-us\*.meta.json >> logs\collect.log 2>&1
+git add data\h200-nvl-us\*.csv data\h200-nvl-us\*.meta.json >> logs\collect.log 2>&1
+git add data\rtx4090-us\*.csv data\rtx4090-us\*.meta.json >> logs\collect.log 2>&1
 git add data\h100-pcie-us\*.csv data\h100-pcie-us\*.meta.json >> logs\collect.log 2>&1
 git add data\v100-us\*.csv data\v100-us\*.meta.json >> logs\collect.log 2>&1
 git add data\l40s-us\*.csv data\l40s-us\*.meta.json >> logs\collect.log 2>&1
