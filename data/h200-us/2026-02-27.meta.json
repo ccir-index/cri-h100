@@ -1,0 +1,40 @@
+{
+  "ccir_version": "1.1.0",
+  "index_name": "CRI-H200",
+  "model_id": "h200-us",
+  "collection_date": "2026-02-27",
+  "collected_utc": "2026-02-27T13:36:32.236674+00:00",
+  "source": "vast.ai public API",
+  "target_gpu": "H200",
+  "geography": "US",
+  "filters": {
+    "min_reliability": 0.9,
+    "min_gpus": 1,
+    "max_days_unchanged": 7
+  },
+  "counts": {
+    "api_returned": 30,
+    "removed_rented": 0,
+    "removed_geography": 22,
+    "removed_reliability": 0,
+    "removed_min_gpus": 0,
+    "removed_stale": 2,
+    "removed_invalid_price": 0,
+    "final_observations": 6
+  },
+  "price_summary": {
+    "min": 2.3231,
+    "max": 2.3333,
+    "mean": 2.3261,
+    "median": 2.3242,
+    "stdev": 0.004,
+    "n": 6
+  },
+  "provenance": {
+    "output_file": "data\\h200-us\\2026-02-27.csv",
+    "sha256": "c3d632d3928634100c22b7b1a892a678cd5932eec801c5f101a5d8a74acf9bf0",
+    "archive_sha256": "9a0ec4cd175fbffe2bbb37d45c53860f518b3628abb6c2675751a0a91f850b95"
+  },
+  "low_confidence": true,
+  "low_confidence_reason": "fewer than 10 qualifying observations"
+}

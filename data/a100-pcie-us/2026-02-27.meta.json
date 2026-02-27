@@ -1,0 +1,40 @@
+{
+  "ccir_version": "1.1.0",
+  "index_name": "CRI-A100-PCIe",
+  "model_id": "a100-pcie-us",
+  "collection_date": "2026-02-27",
+  "collected_utc": "2026-02-27T13:36:32.226464+00:00",
+  "source": "vast.ai public API",
+  "target_gpu": "A100 PCIE",
+  "geography": "US",
+  "filters": {
+    "min_reliability": 0.9,
+    "min_gpus": 1,
+    "max_days_unchanged": 7
+  },
+  "counts": {
+    "api_returned": 19,
+    "removed_rented": 0,
+    "removed_geography": 12,
+    "removed_reliability": 0,
+    "removed_min_gpus": 0,
+    "removed_stale": 0,
+    "removed_invalid_price": 0,
+    "final_observations": 7
+  },
+  "price_summary": {
+    "min": 0.5081,
+    "max": 1.2689,
+    "mean": 0.7596,
+    "median": 0.6733,
+    "stdev": 0.2665,
+    "n": 7
+  },
+  "provenance": {
+    "output_file": "data\\a100-pcie-us\\2026-02-27.csv",
+    "sha256": "3a4b984d5ba141f22ddabf2d36f836f487de7bde7a8c88455204365a3e683647",
+    "archive_sha256": "9a0ec4cd175fbffe2bbb37d45c53860f518b3628abb6c2675751a0a91f850b95"
+  },
+  "low_confidence": true,
+  "low_confidence_reason": "fewer than 10 qualifying observations"
+}

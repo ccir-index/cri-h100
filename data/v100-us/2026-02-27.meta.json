@@ -1,0 +1,40 @@
+{
+  "ccir_version": "1.1.0",
+  "index_name": "CRI-V100",
+  "model_id": "v100-us",
+  "collection_date": "2026-02-27",
+  "collected_utc": "2026-02-27T13:36:32.268277+00:00",
+  "source": "vast.ai public API",
+  "target_gpu": "Tesla V100",
+  "geography": "US",
+  "filters": {
+    "min_reliability": 0.9,
+    "min_gpus": 1,
+    "max_days_unchanged": 7
+  },
+  "counts": {
+    "api_returned": 64,
+    "removed_rented": 0,
+    "removed_geography": 11,
+    "removed_reliability": 0,
+    "removed_min_gpus": 0,
+    "removed_stale": 3,
+    "removed_invalid_price": 0,
+    "final_observations": 50
+  },
+  "price_summary": {
+    "min": 0.0176,
+    "max": 0.2163,
+    "mean": 0.1065,
+    "median": 0.127,
+    "stdev": 0.0728,
+    "n": 50
+  },
+  "provenance": {
+    "output_file": "data\\v100-us\\2026-02-27.csv",
+    "sha256": "46651bd527e9c1802cc9f5a1bf79d642d1c63066b4de9874aae58921374004bd",
+    "archive_sha256": "9a0ec4cd175fbffe2bbb37d45c53860f518b3628abb6c2675751a0a91f850b95"
+  },
+  "low_confidence": false,
+  "low_confidence_reason": null
+}
