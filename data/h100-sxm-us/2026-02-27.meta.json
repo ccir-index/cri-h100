@@ -3,7 +3,7 @@
   "index_name": "CRI-H100",
   "model_id": "h100-sxm-us",
   "collection_date": "2026-02-27",
-  "collected_utc": "2026-02-27T13:36:32.209794+00:00",
+  "collected_utc": "2026-02-27T15:22:46.433145+00:00",
   "source": "vast.ai public API",
   "target_gpu": "H100 SXM",
   "geography": "US",
@@ -13,27 +13,27 @@
     "max_days_unchanged": 7
   },
   "counts": {
-    "api_returned": 29,
+    "api_returned": 31,
     "removed_rented": 0,
-    "removed_geography": 12,
+    "removed_geography": 14,
     "removed_reliability": 1,
     "removed_min_gpus": 0,
-    "removed_stale": 3,
+    "removed_stale": 0,
     "removed_invalid_price": 0,
-    "final_observations": 13
+    "final_observations": 16
   },
   "price_summary": {
-    "min": 1.5544,
+    "min": 1.537,
     "max": 2.2022,
-    "mean": 1.84,
-    "median": 1.8681,
-    "stdev": 0.2786,
-    "n": 13
+    "mean": 1.8053,
+    "median": 1.7347,
+    "stdev": 0.2691,
+    "n": 16
   },
   "provenance": {
     "output_file": "data\\h100-sxm-us\\2026-02-27.csv",
-    "sha256": "348945070eba2aa2ffb313cdf3fff4b029fc3d3eafd9d4864dba70b5c17baada",
-    "archive_sha256": "9a0ec4cd175fbffe2bbb37d45c53860f518b3628abb6c2675751a0a91f850b95"
+    "sha256": "30e91f297acec49896ce230cd7e05fa2dcffdeec27c98fe90e4658132cf2acc5",
+    "archive_sha256": "5200f7653be022ba3cfafee321c0697b14ca193cfad284a73a25b42abd134dd4"
   },
   "low_confidence": false,
   "low_confidence_reason": null
