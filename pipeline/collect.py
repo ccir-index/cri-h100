@@ -371,7 +371,8 @@ def write_model_snapshot(listings: list, prices: list, model_config: dict,
 def main():
     parser = argparse.ArgumentParser(description="Collect CRI daily snapshots (all models)")
     parser.add_argument("--date", default=datetime.now(timezone.utc).strftime("%Y-%m-%d"))
-    parser.add_argument("--data-dir", default="data")
+    parser.add_argument("--data-dir",
+                        default=str(Path(__file__).resolve().parent.parent / "data"))
     parser.add_argument("--models", nargs="*", default=None,
                         help="Model IDs to process (default: all). "
                              "E.g. --models h100-sxm-us a100-sxm-us")
@@ -435,7 +436,7 @@ def main():
         n = write_model_snapshot(listings, prices, model, counts,
                                 date_str, data_dir, archive_sha256)
 
-        tag = " ← CRI-H100 (primary)" if model["primary"] else ""
+        tag = " -- CRI-H100 (primary)" if model["primary"] else ""
         status = ""
         if n == 0:
             status = " [NO DATA]"
@@ -453,12 +454,12 @@ def main():
         primary_id = primary[0]["id"]
         primary_n  = next((r["n"] for r in results_summary if r["model"] == primary_id), 0)
         print(f"\n{'=' * 60}")
-        print(f"✓ Done. Archive: {total_fetched} total offers across {len(models)} models.")
+        print(f"Done. Archive: {total_fetched} total offers across {len(models)} models.")
         print(f"  CRI-H100 ({primary_id}): {primary_n} qualifying observations.")
         if primary_n < 10:
             print(f"  WARNING: LOW CONFIDENCE — fewer than 10 observations.")
     else:
-        print(f"\n✓ Done. Archive: {total_fetched} total offers.")
+        print(f"\nDone. Archive: {total_fetched} total offers.")
 
 
 if __name__ == "__main__":
