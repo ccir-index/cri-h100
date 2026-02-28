@@ -1,0 +1,48 @@
+name: CRI Daily Collection
+
+on:
+  schedule:
+    # 9:00 AM Central Standard Time = 15:00 UTC
+    # 9:00 AM Central Daylight Time = 14:00 UTC
+    # Run at both to cover DST transitions
+    - cron: '0 14,15 * * *'
+  workflow_dispatch:  # Allow manual trigger from GitHub UI
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Get current date
+        id: date
+        run: echo "date=$(date -u +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+      - name: Run collection
+        run: python pipeline/collect.py --date ${{ steps.date.outputs.date }}
+
+      - name: Check for new data
+        id: changes
+        run: |
+          git diff --quiet data/ && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "CCIR Pipeline"
+          git config user.email "research@ccir.io"
+          git add data/
+          git commit -m "[collect] ${{ steps.date.outputs.date }} -- daily snapshot (all models)"
+          git push
