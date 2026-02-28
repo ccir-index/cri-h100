@@ -3,7 +3,7 @@
   "index_name": "CRI-A100-PCIe",
   "model_id": "a100-pcie-us",
   "collection_date": "2026-02-28",
-  "collected_utc": "2026-02-28T17:58:42.606825+00:00",
+  "collected_utc": "2026-02-28T22:08:08.480029+00:00",
   "source": "vast.ai public API",
   "target_gpu": "A100 PCIE",
   "geography": "US",
@@ -15,25 +15,25 @@
   "counts": {
     "api_returned": 15,
     "removed_rented": 0,
-    "removed_geography": 9,
+    "removed_geography": 10,
     "removed_reliability": 0,
     "removed_min_gpus": 0,
-    "removed_stale": 2,
+    "removed_stale": 0,
     "removed_invalid_price": 0,
-    "final_observations": 4
+    "final_observations": 5
   },
   "price_summary": {
-    "min": 0.5207,
+    "min": 0.5081,
     "max": 1.0556,
-    "mean": 0.6928,
-    "median": 0.5974,
-    "stdev": 0.2523,
-    "n": 4
+    "mean": 0.6559,
+    "median": 0.5215,
+    "stdev": 0.2336,
+    "n": 5
   },
   "provenance": {
-    "output_file": "C:\\Users\\19136\\CCIR\\data\\a100-pcie-us\\2026-02-28.csv",
-    "sha256": "4a23e6e8643c06f1eef22fa995357434efd7a68fe3af05e271cd4d37c569f684",
-    "archive_sha256": "e360385b13a85cc287dc203940b4fe846455fdf90a0b61835de31d00526124b8"
+    "output_file": "/home/runner/work/cri-h100/cri-h100/data/a100-pcie-us/2026-02-28.csv",
+    "sha256": "9ae9bffe579da37b6e2ce3d9abf77c8b5bd8abf145fe6adb192c4d6db5af4c64",
+    "archive_sha256": "cf9f7bb356bc9157ce9e056c9a178cbb249489fe120f76db0105ddafa2bdf526"
   },
   "low_confidence": true,
   "low_confidence_reason": "fewer than 10 qualifying observations"

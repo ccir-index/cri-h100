@@ -1,27 +1,27 @@
 {
   "ccir_version": "1.1.0",
   "collection_date": "2026-02-28",
-  "collected_utc": "2026-02-28T17:58:42.574231+00:00",
+  "collected_utc": "2026-02-28T22:08:08.478291+00:00",
   "source": "vast.ai public API",
   "archive_type": "combined_per_model_queries",
   "description": "Per-model API queries combined into single archive. All geographies, rented and unrented.",
   "counts": {
-    "total_offers": 237,
+    "total_offers": 234,
     "models_queried": 9,
     "by_gpu_model": {
       "Tesla V100": 64,
       "RTX 4090": 64,
-      "H200": 32,
-      "L40S": 30,
-      "H100 SXM": 22,
+      "L40S": 31,
+      "H200": 29,
+      "H100 SXM": 24,
       "A100 PCIE": 15,
-      "H200 NVL": 10,
+      "H200 NVL": 7,
       "A100 SXM": 0,
       "H100 PCIE": 0
     }
   },
   "provenance": {
-    "output_file": "C:\\Users\\19136\\CCIR\\data\\archive\\2026-02-28.json",
-    "sha256": "e360385b13a85cc287dc203940b4fe846455fdf90a0b61835de31d00526124b8"
+    "output_file": "/home/runner/work/cri-h100/cri-h100/data/archive/2026-02-28.json",
+    "sha256": "cf9f7bb356bc9157ce9e056c9a178cbb249489fe120f76db0105ddafa2bdf526"
   }
 }

@@ -3,7 +3,7 @@
   "index_name": "CRI-H200-NVL",
   "model_id": "h200-nvl-us",
   "collection_date": "2026-02-28",
-  "collected_utc": "2026-02-28T17:58:42.622109+00:00",
+  "collected_utc": "2026-02-28T22:08:08.481036+00:00",
   "source": "vast.ai public API",
   "target_gpu": "H200 NVL",
   "geography": "US",
@@ -13,27 +13,27 @@
     "max_days_unchanged": 7
   },
   "counts": {
-    "api_returned": 10,
+    "api_returned": 7,
     "removed_rented": 0,
-    "removed_geography": 10,
+    "removed_geography": 5,
     "removed_reliability": 0,
     "removed_min_gpus": 0,
     "removed_stale": 0,
     "removed_invalid_price": 0,
-    "final_observations": 0
+    "final_observations": 2
   },
   "price_summary": {
-    "min": null,
-    "max": null,
-    "mean": null,
-    "median": null,
-    "stdev": null,
-    "n": 0
+    "min": 1.5238,
+    "max": 1.5249,
+    "mean": 1.5243,
+    "median": 1.5243,
+    "stdev": 0.0008,
+    "n": 2
   },
   "provenance": {
-    "output_file": "C:\\Users\\19136\\CCIR\\data\\h200-nvl-us\\2026-02-28.csv",
-    "sha256": "d9b83616c0cef3f462ee996ebd72ab8f09d73eb169eb1da6523b927341ef11e1",
-    "archive_sha256": "e360385b13a85cc287dc203940b4fe846455fdf90a0b61835de31d00526124b8"
+    "output_file": "/home/runner/work/cri-h100/cri-h100/data/h200-nvl-us/2026-02-28.csv",
+    "sha256": "88e67f83930839223753b92075c19178d566a4464127d05ab0e3524d81afb486",
+    "archive_sha256": "cf9f7bb356bc9157ce9e056c9a178cbb249489fe120f76db0105ddafa2bdf526"
   },
   "low_confidence": true,
   "low_confidence_reason": "fewer than 10 qualifying observations"
