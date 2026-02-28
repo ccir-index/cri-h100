@@ -1,7 +1,7 @@
 {
   "ccir_version": "1.1.0",
   "collection_date": "2026-02-28",
-  "collected_utc": "2026-02-28T22:08:08.478291+00:00",
+  "collected_utc": "2026-02-28T22:08:32.884215+00:00",
   "source": "vast.ai public API",
   "archive_type": "combined_per_model_queries",
   "description": "Per-model API queries combined into single archive. All geographies, rented and unrented.",
@@ -22,6 +22,6 @@
   },
   "provenance": {
     "output_file": "/home/runner/work/cri-h100/cri-h100/data/archive/2026-02-28.json",
-    "sha256": "cf9f7bb356bc9157ce9e056c9a178cbb249489fe120f76db0105ddafa2bdf526"
+    "sha256": "e52a9f2be88b650a664b3539ea23ba43c52b357db1b316d5894167685a0b1d12"
   }
 }

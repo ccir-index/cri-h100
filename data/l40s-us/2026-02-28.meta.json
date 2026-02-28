@@ -3,7 +3,7 @@
   "index_name": "CRI-L40S",
   "model_id": "l40s-us",
   "collection_date": "2026-02-28",
-  "collected_utc": "2026-02-28T22:08:08.483180+00:00",
+  "collected_utc": "2026-02-28T22:08:32.888963+00:00",
   "source": "vast.ai public API",
   "target_gpu": "L40S",
   "geography": "US",
@@ -18,22 +18,22 @@
     "removed_geography": 8,
     "removed_reliability": 0,
     "removed_min_gpus": 0,
-    "removed_stale": 7,
+    "removed_stale": 8,
     "removed_invalid_price": 0,
-    "final_observations": 16
+    "final_observations": 15
   },
   "price_summary": {
     "min": 0.4668,
     "max": 1.2074,
-    "mean": 0.7633,
-    "median": 0.7196,
-    "stdev": 0.298,
-    "n": 16
+    "mean": 0.7338,
+    "median": 0.5049,
+    "stdev": 0.2837,
+    "n": 15
   },
   "provenance": {
     "output_file": "/home/runner/work/cri-h100/cri-h100/data/l40s-us/2026-02-28.csv",
-    "sha256": "eaf1527a2fb2fe0bcbe5c72911f150edcf1ea43cb477fb249edb518dbe0f9d9c",
-    "archive_sha256": "cf9f7bb356bc9157ce9e056c9a178cbb249489fe120f76db0105ddafa2bdf526"
+    "sha256": "ff3b591ccdb8a3ac50cfbb0d940b9e6062525cc6ecae06df7d4e71ed8543da99",
+    "archive_sha256": "e52a9f2be88b650a664b3539ea23ba43c52b357db1b316d5894167685a0b1d12"
   },
   "low_confidence": false,
   "low_confidence_reason": null

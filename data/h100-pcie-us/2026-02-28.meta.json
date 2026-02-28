@@ -3,7 +3,7 @@
   "index_name": "CRI-H100-PCIe",
   "model_id": "h100-pcie-us",
   "collection_date": "2026-02-28",
-  "collected_utc": "2026-02-28T22:08:08.481382+00:00",
+  "collected_utc": "2026-02-28T22:08:32.887266+00:00",
   "source": "vast.ai public API",
   "target_gpu": "H100 PCIE",
   "geography": "US",
@@ -33,7 +33,7 @@
   "provenance": {
     "output_file": "/home/runner/work/cri-h100/cri-h100/data/h100-pcie-us/2026-02-28.csv",
     "sha256": "d9b83616c0cef3f462ee996ebd72ab8f09d73eb169eb1da6523b927341ef11e1",
-    "archive_sha256": "cf9f7bb356bc9157ce9e056c9a178cbb249489fe120f76db0105ddafa2bdf526"
+    "archive_sha256": "e52a9f2be88b650a664b3539ea23ba43c52b357db1b316d5894167685a0b1d12"
   },
   "low_confidence": true,
   "low_confidence_reason": "fewer than 10 qualifying observations"

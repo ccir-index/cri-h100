@@ -3,7 +3,7 @@
   "index_name": "CRI-H200-NVL",
   "model_id": "h200-nvl-us",
   "collection_date": "2026-02-28",
-  "collected_utc": "2026-02-28T22:08:08.481036+00:00",
+  "collected_utc": "2026-02-28T22:08:32.886937+00:00",
   "source": "vast.ai public API",
   "target_gpu": "H200 NVL",
   "geography": "US",
@@ -32,8 +32,8 @@
   },
   "provenance": {
     "output_file": "/home/runner/work/cri-h100/cri-h100/data/h200-nvl-us/2026-02-28.csv",
-    "sha256": "88e67f83930839223753b92075c19178d566a4464127d05ab0e3524d81afb486",
-    "archive_sha256": "cf9f7bb356bc9157ce9e056c9a178cbb249489fe120f76db0105ddafa2bdf526"
+    "sha256": "c494d3567ee290da39d2bb82a76bbee40e8dd42e042dbc22db8fec87d74baaaf",
+    "archive_sha256": "e52a9f2be88b650a664b3539ea23ba43c52b357db1b316d5894167685a0b1d12"
   },
   "low_confidence": true,
   "low_confidence_reason": "fewer than 10 qualifying observations"
