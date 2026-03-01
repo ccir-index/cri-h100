@@ -3,7 +3,7 @@
   "index_name": "CRI-4090",
   "model_id": "rtx4090-us",
   "collection_date": "2026-03-01",
-  "collected_utc": "2026-03-01T15:00:17.584962+00:00",
+  "collected_utc": "2026-03-01T15:46:00.156505+00:00",
   "source": "vast.ai public API",
   "target_gpu": "RTX 4090",
   "geography": "US",
@@ -15,25 +15,25 @@
   "counts": {
     "api_returned": 64,
     "removed_rented": 0,
-    "removed_geography": 51,
+    "removed_geography": 31,
     "removed_reliability": 0,
     "removed_min_gpus": 0,
-    "removed_stale": 0,
+    "removed_stale": 2,
     "removed_invalid_price": 0,
-    "final_observations": 13
+    "final_observations": 31
   },
   "price_summary": {
     "min": 0.1542,
-    "max": 0.6681,
-    "mean": 0.4744,
-    "median": 0.5326,
-    "stdev": 0.1404,
-    "n": 13
+    "max": 0.5422,
+    "mean": 0.376,
+    "median": 0.4007,
+    "stdev": 0.0776,
+    "n": 31
   },
   "provenance": {
-    "output_file": "C:\\Users\\19136\\CCIR\\data\\rtx4090-us\\2026-03-01.csv",
-    "sha256": "bcc39c1ef1df7c6ffbc96fcad770bffc4814fe51be88fe2b5e7da51d3b3ffe6f",
-    "archive_sha256": "0985a2ba694533fb3ec8718c2a6538a4d63ca93cdd26bba56629fdfefb30ba83"
+    "output_file": "/home/runner/work/cri-h100/cri-h100/data/rtx4090-us/2026-03-01.csv",
+    "sha256": "8e52d852f393e206175186b6c222309df5d6457d47baea3f530cd6907efc53e2",
+    "archive_sha256": "f2e4e68478a394c8130cc1ad26226ce9a4c68481ba14eb4184a7ae1c5e9c05d6"
   },
   "low_confidence": false,
   "low_confidence_reason": null

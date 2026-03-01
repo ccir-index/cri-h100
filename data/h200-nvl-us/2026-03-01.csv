@@ -1,2 +1,2 @@
 listing_id,gpu_name,num_gpus,dph_total,dph_per_gpu,reliability,geolocation,datacenter,last_seen,gpu_ram_gb,collected_utc
-28418868,H200 NVL,1,2.1262222222222222,2.126222,0.997423,"Texas, US",False,,143771,2026-03-01T15:00:17.545882+00:00
+28418868,H200 NVL,1,2.1128888888888886,2.112889,0.9974248,"Texas, US",False,,143771,2026-03-01T15:46:00.153451+00:00
