@@ -51,6 +51,7 @@ if %ERRORLEVEL% EQU 0 (
 git commit -m "[collect] %today% -- daily snapshot (all models)" >> logs\collect.log 2>&1
 
 :: Push to GitHub
+git pull --rebase >> logs\collect.log 2>&1
 git push >> logs\collect.log 2>&1
 
 if %ERRORLEVEL% NEQ 0 (
