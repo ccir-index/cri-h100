@@ -1,0 +1,40 @@
+{
+  "ccir_version": "1.1.0",
+  "index_name": "CRI-L40S",
+  "model_id": "l40s-us",
+  "collection_date": "2026-03-03",
+  "collected_utc": "2026-03-03T16:25:06.742215+00:00",
+  "source": "vast.ai public API",
+  "target_gpu": "L40S",
+  "geography": "US",
+  "filters": {
+    "min_reliability": 0.9,
+    "min_gpus": 1,
+    "max_days_unchanged": 7
+  },
+  "counts": {
+    "api_returned": 26,
+    "removed_rented": 0,
+    "removed_geography": 6,
+    "removed_reliability": 3,
+    "removed_min_gpus": 0,
+    "removed_stale": 2,
+    "removed_invalid_price": 0,
+    "final_observations": 15
+  },
+  "price_summary": {
+    "min": 0.4668,
+    "max": 1.2074,
+    "mean": 0.9985,
+    "median": 1.0685,
+    "stdev": 0.2408,
+    "n": 15
+  },
+  "provenance": {
+    "output_file": "C:\\Users\\19136\\CCIR\\data\\l40s-us\\2026-03-03.csv",
+    "sha256": "26d096a34db3da5a908036b17b4c9c3d3f833a34521404a13916261668b2bf33",
+    "archive_sha256": "452325f28eb76ffc9100e150ed6f140ef80e787fea83d4e26063a78e5ddbd153"
+  },
+  "low_confidence": false,
+  "low_confidence_reason": null
+}

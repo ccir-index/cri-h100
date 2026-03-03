@@ -1,0 +1,40 @@
+{
+  "ccir_version": "1.1.0",
+  "index_name": "CRI-H100",
+  "model_id": "h100-sxm-us",
+  "collection_date": "2026-03-03",
+  "collected_utc": "2026-03-03T16:25:06.682394+00:00",
+  "source": "vast.ai public API",
+  "target_gpu": "H100 SXM",
+  "geography": "US",
+  "filters": {
+    "min_reliability": 0.9,
+    "min_gpus": 1,
+    "max_days_unchanged": 7
+  },
+  "counts": {
+    "api_returned": 29,
+    "removed_rented": 0,
+    "removed_geography": 19,
+    "removed_reliability": 0,
+    "removed_min_gpus": 0,
+    "removed_stale": 0,
+    "removed_invalid_price": 0,
+    "final_observations": 10
+  },
+  "price_summary": {
+    "min": 1.537,
+    "max": 2.2689,
+    "mean": 1.8656,
+    "median": 1.7351,
+    "stdev": 0.3331,
+    "n": 10
+  },
+  "provenance": {
+    "output_file": "C:\\Users\\19136\\CCIR\\data\\h100-sxm-us\\2026-03-03.csv",
+    "sha256": "eee8997a362c926be415a189c92454f5e65fad2380468d2a34a4a0ae235a6aa3",
+    "archive_sha256": "452325f28eb76ffc9100e150ed6f140ef80e787fea83d4e26063a78e5ddbd153"
+  },
+  "low_confidence": false,
+  "low_confidence_reason": null
+}
