@@ -1,0 +1,19 @@
+source_id,source,gpu_model,price_per_gpu_hr,vm_price_hr,gpus_per_vm,region,sku,price_type,rate_type,effective_date,reproducible,auth_required,collected_utc
+azure-h100-eastus,azure,H100 SXM,6.98,6.98,1,eastus,Standard_NC40ads_H100_v5,on_demand,rate_card,2024-03-01T00:00:00Z,True,False,2026-03-03T15:10:16.957509+00:00
+azure-h100-spot-eastus,azure,H100 SXM,2.491162,2.491162,1,eastus,Standard_NC40ads_H100_v5,spot,rate_card,2026-03-01T00:00:00Z,True,False,2026-03-03T15:10:16.957509+00:00
+azure-a100-eastus,azure,A100 SXM,3.673,3.673,1,eastus,Standard_NC24ads_A100_v4,on_demand,rate_card,2022-06-01T00:00:00Z,True,False,2026-03-03T15:10:16.957509+00:00
+azure-v100-eastus,azure,V100 SXM,3.336,3.336,1,eastus,Standard_NC6s_v3,on_demand,rate_card,2026-01-01T00:00:00Z,True,False,2026-03-03T15:10:16.957509+00:00
+aws-h100-us-east-1,aws,H100 SXM,6.88,55.04,8,us-east-1,p5.48xlarge,on_demand,rate_card,,True,False,2026-03-03T15:10:16.957509+00:00
+aws-a100-us-east-1,aws,A100 SXM,2.744705,21.957642,8,us-east-1,p4d.24xlarge,on_demand,rate_card,,True,False,2026-03-03T15:10:16.957509+00:00
+aws-v100-us-east-1,aws,V100 SXM,3.06,24.48,8,us-east-1,p3.16xlarge,on_demand,rate_card,,True,False,2026-03-03T15:10:16.957509+00:00
+gcp-h100-us-central1,gcp,H100 SXM,9.796551,,,us-central1,D4E2-451A-15B9,on_demand,on_demand,2026-03-03T08:00:00Z,True,True,2026-03-03T15:10:16.957509+00:00
+gcp-h100-spot-us-central1,gcp,H100 SXM,2.9926,,,us-central1,7A6D-F74C-B0A3,spot_posted,spot_posted,2026-03-03T08:00:00Z,True,True,2026-03-03T15:10:16.957509+00:00
+gcp-a100-us-central1,gcp,A100 SXM,3.92808,,,us-central1,EDA0-3A70-3138,on_demand,on_demand,2026-03-03T08:00:00Z,True,True,2026-03-03T15:10:16.957509+00:00
+runpod-h100-sxm-secure,runpod,H100 SXM,2.69,,1,global,NVIDIA H100 80GB HBM3,secure,rate_card_posted,,True,True,2026-03-03T15:10:16.957509+00:00
+runpod-h100-sxm-community,runpod,H100 SXM,2.69,,1,global,NVIDIA H100 80GB HBM3,community,rate_card_posted,,True,True,2026-03-03T15:10:16.957509+00:00
+runpod-h100-sxm-spot,runpod,H100 SXM,1.75,,1,global,NVIDIA H100 80GB HBM3,secure_spot,rate_card_posted,,True,True,2026-03-03T15:10:16.957509+00:00
+runpod-a100-sxm-secure,runpod,A100 SXM,1.49,,1,global,NVIDIA A100-SXM4-80GB,secure,rate_card_posted,,True,True,2026-03-03T15:10:16.957509+00:00
+runpod-a100-sxm-community,runpod,A100 SXM,1.39,,1,global,NVIDIA A100-SXM4-80GB,community,rate_card_posted,,True,True,2026-03-03T15:10:16.957509+00:00
+runpod-h200-sxm-secure,runpod,H200 SXM,3.59,,1,global,NVIDIA H200,secure,rate_card_posted,,True,True,2026-03-03T15:10:16.957509+00:00
+runpod-h200-sxm-community,runpod,H200 SXM,3.59,,1,global,NVIDIA H200,community,rate_card_posted,,True,True,2026-03-03T15:10:16.957509+00:00
+runpod-v100-sxm-community,runpod,V100 SXM,0.33,,1,global,Tesla V100-SXM2-32GB,community,rate_card_posted,,True,True,2026-03-03T15:10:16.957509+00:00
