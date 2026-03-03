@@ -1,7 +1,7 @@
 {
   "ccir_version": "1.1.0",
   "collection_date": "2026-03-03",
-  "collected_utc": "2026-03-03T15:10:16.957509+00:00",
+  "collected_utc": "2026-03-03T15:11:49.427105+00:00",
   "series_type": "CRI-R (Reference Rate Companion)",
   "sources": [
     "aws",
@@ -13,6 +13,6 @@
   "governance_note": "These rate cards are companion reference data, not an IOSCO-compliant benchmark. Azure and AWS require no authentication and are independently reproducible. GCP and RunPod require a freely obtainable API key.",
   "provenance": {
     "output_file": "C:\\Users\\19136\\CCIR\\data\\reference-rates\\2026-03-03.json",
-    "sha256": "b213be279675129a291341bdd1fc1d2765f13260da53f77e89e7b48bcc203d8a"
+    "sha256": "b88c993d34c6d8c9cb3ddd949f2b134c4aceff87103675490ac37eede7307a8c"
   }
 }
