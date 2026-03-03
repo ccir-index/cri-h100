@@ -1,0 +1,62 @@
+name: CRI-H100 Weekly Calculation
+
+on:
+  workflow_dispatch:        # Manual trigger only for now
+  # schedule:
+  #   - cron: '0 13 * * 4'  # Thursday 7:00 AM CT (13:00 UTC, DST active)
+  #   - cron: '0 12 * * 4'  # Thursday 7:00 AM CT (12:00 UTC, DST inactive)
+  # Uncomment above to enable automatic Thursday publication
+
+jobs:
+  calculate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Get end date (Wednesday preceding publication)
+        id: date
+        run: |
+          # Publication is Thursday — end date is the Wednesday before
+          END_DATE=$(date -u -d 'last wednesday' +'%Y-%m-%d')
+          echo "end_date=$END_DATE" >> $GITHUB_OUTPUT
+          echo "End date: $END_DATE"
+
+      - name: Run calculation
+        run: python pipeline/calculate.py --end-date ${{ steps.date.outputs.end_date }}
+
+      - name: Check for new output
+        id: changes
+        run: |
+          git diff --quiet outputs/ && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "CCIR Pipeline"
+          git config user.email "research@ccir.io"
+          git add outputs/
+          git commit -m "[calculate] ${{ steps.date.outputs.end_date }} -- CRI-H100 weekly publication"
+          git push origin main
+
+      - name: Print result
+        run: |
+          echo "========================================"
+          echo "CRI-H100 publication complete"
+          echo "End date: ${{ steps.date.outputs.end_date }}"
+          cat outputs/cri-h100-index.csv
+          echo "========================================"
