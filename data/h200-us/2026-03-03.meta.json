@@ -3,7 +3,7 @@
   "index_name": "CRI-H200",
   "model_id": "h200-us",
   "collection_date": "2026-03-03",
-  "collected_utc": "2026-03-03T16:25:06.712683+00:00",
+  "collected_utc": "2026-03-03T16:40:22.885306+00:00",
   "source": "vast.ai public API",
   "target_gpu": "H200",
   "geography": "US",
@@ -13,28 +13,28 @@
     "max_days_unchanged": 7
   },
   "counts": {
-    "api_returned": 26,
+    "api_returned": 25,
     "removed_rented": 0,
     "removed_geography": 15,
     "removed_reliability": 0,
     "removed_min_gpus": 0,
-    "removed_stale": 0,
+    "removed_stale": 1,
     "removed_invalid_price": 0,
-    "final_observations": 11
+    "final_observations": 9
   },
   "price_summary": {
     "min": 2.0658,
     "max": 2.3333,
-    "mean": 2.2552,
+    "mean": 2.2395,
     "median": 2.3237,
-    "stdev": 0.1206,
-    "n": 11
+    "stdev": 0.1291,
+    "n": 9
   },
   "provenance": {
     "output_file": "C:\\Users\\19136\\CCIR\\data\\h200-us\\2026-03-03.csv",
-    "sha256": "5b2bdff64653ca1dac7bf7fa496a398dbb44ca9b59ab5109b1aa855257455522",
-    "archive_sha256": "452325f28eb76ffc9100e150ed6f140ef80e787fea83d4e26063a78e5ddbd153"
+    "sha256": "b5c082e549022fe0a858e1906051a8944ff772a23468b9811e3cc48a2ec9b976",
+    "archive_sha256": "9ecf5eab0ec275a8c493027d3f5cac26bacd6cad24d7351a09d189366041aad3"
   },
-  "low_confidence": false,
-  "low_confidence_reason": null
+  "low_confidence": true,
+  "low_confidence_reason": "fewer than 10 qualifying observations"
 }

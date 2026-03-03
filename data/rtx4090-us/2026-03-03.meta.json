@@ -3,7 +3,7 @@
   "index_name": "CRI-4090",
   "model_id": "rtx4090-us",
   "collection_date": "2026-03-03",
-  "collected_utc": "2026-03-03T16:25:06.753909+00:00",
+  "collected_utc": "2026-03-03T16:40:22.920866+00:00",
   "source": "vast.ai public API",
   "target_gpu": "RTX 4090",
   "geography": "US",
@@ -18,22 +18,22 @@
     "removed_geography": 42,
     "removed_reliability": 0,
     "removed_min_gpus": 0,
-    "removed_stale": 2,
+    "removed_stale": 1,
     "removed_invalid_price": 0,
-    "final_observations": 13
+    "final_observations": 14
   },
   "price_summary": {
-    "min": 0.3602,
-    "max": 0.603,
-    "mean": 0.4309,
-    "median": 0.4002,
-    "stdev": 0.0752,
-    "n": 13
+    "min": 0.3113,
+    "max": 0.6696,
+    "mean": 0.4357,
+    "median": 0.4006,
+    "stdev": 0.1146,
+    "n": 14
   },
   "provenance": {
     "output_file": "C:\\Users\\19136\\CCIR\\data\\rtx4090-us\\2026-03-03.csv",
-    "sha256": "553096f4ea94859b4dd2905d8ab441dadd486c29254c82e4d7b3dcb97647bcff",
-    "archive_sha256": "452325f28eb76ffc9100e150ed6f140ef80e787fea83d4e26063a78e5ddbd153"
+    "sha256": "f2e8b2ea3dc52854b2156013d4dca636b69237da1b2792a905b0b3a8ae046e5b",
+    "archive_sha256": "9ecf5eab0ec275a8c493027d3f5cac26bacd6cad24d7351a09d189366041aad3"
   },
   "low_confidence": false,
   "low_confidence_reason": null
