@@ -1,0 +1,38 @@
+name: CRI-R Weekly Reference Rate Collection
+
+on:
+  schedule:
+    - cron: '30 14 * * 1'   # Monday 9:30 AM ET (14:30 UTC, adjusts for DST)
+    - cron: '30 13 * * 1'   # Monday 9:30 AM ET (13:30 UTC, DST active Mar-Nov)
+  workflow_dispatch:         # Allow manual trigger from GitHub Actions UI
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run CRI-R collection
+        run: python pipeline/collect_reference_rates.py
+        env:
+          GCP_API_KEY: ${{ secrets.GCP_API_KEY }}
+          RUNPOD_API_KEY: ${{ secrets.RUNPOD_API_KEY }}
+
+      - name: Commit and push results
+        run: |
+          git config user.name "ccir-bot"
+          git config user.email "bot@ccir.io"
+          git add data/reference-rates/
+          git diff --cached --quiet && echo "No new data to commit." || \
+            git commit -m "[collect-r] $(date -u +%Y-%m-%d) -- weekly CRI-R rate card snapshot"
+          git push
