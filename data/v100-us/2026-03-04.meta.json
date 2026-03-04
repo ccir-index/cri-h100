@@ -3,7 +3,7 @@
   "index_name": "CRI-V100",
   "model_id": "v100-us",
   "collection_date": "2026-03-04",
-  "collected_utc": "2026-03-04T15:00:18.204514+00:00",
+  "collected_utc": "2026-03-04T16:01:42.002913+00:00",
   "source": "vast.ai public API",
   "target_gpu": "Tesla V100",
   "geography": "US",
@@ -15,25 +15,25 @@
   "counts": {
     "api_returned": 64,
     "removed_rented": 0,
-    "removed_geography": 15,
+    "removed_geography": 13,
     "removed_reliability": 0,
     "removed_min_gpus": 0,
-    "removed_stale": 3,
+    "removed_stale": 5,
     "removed_invalid_price": 0,
     "final_observations": 46
   },
   "price_summary": {
-    "min": 0.0184,
+    "min": 0.0179,
     "max": 0.2163,
-    "mean": 0.0914,
-    "median": 0.0683,
-    "stdev": 0.0741,
+    "mean": 0.0939,
+    "median": 0.0752,
+    "stdev": 0.0737,
     "n": 46
   },
   "provenance": {
-    "output_file": "C:\\Users\\19136\\CCIR\\data\\v100-us\\2026-03-04.csv",
-    "sha256": "4b77a237b2b5a488aae93b73e5af47f9afad163b0096c29c44fa97732e009229",
-    "archive_sha256": "905ae2e0d2a76cebb9baeadc1ad1084de2c9e56a087f3b32f885992f5f8f8a1e"
+    "output_file": "/home/runner/work/cri-h100/cri-h100/data/v100-us/2026-03-04.csv",
+    "sha256": "5064a4c565fa492d95187ce653fa6359d7be5f29c4b4bf454e36e5989e6e0995",
+    "archive_sha256": "2d16b4be6cdc036cc8207d11130de707abdaa5cfc35f125d423f2cef3e15b3a9"
   },
   "low_confidence": false,
   "low_confidence_reason": null
