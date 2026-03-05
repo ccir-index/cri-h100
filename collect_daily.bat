@@ -20,7 +20,7 @@ echo CRI Collection started: %today% %time% >> logs\collect.log
 echo ======================================== >> logs\collect.log
 
 :: Run collection (fetches all models, archives full response)
-python pipeline\collect.py >> logs\collect.log 2>&1
+python pipeline\collect_with_retry.py >> logs\collect.log 2>&1
 
 :: Check if collection succeeded
 if %ERRORLEVEL% NEQ 0 (
@@ -51,7 +51,6 @@ if %ERRORLEVEL% EQU 0 (
 git commit -m "[collect] %today% -- daily snapshot (all models)" >> logs\collect.log 2>&1
 
 :: Push to GitHub
-git pull --rebase >> logs\collect.log 2>&1
 git push >> logs\collect.log 2>&1
 
 if %ERRORLEVEL% NEQ 0 (
