@@ -65,5 +65,5 @@
     }
   ],
   "methodology": "Trailing 7-day median $/GPU-hour, outlier removal at 2.5 sigma. See CCIR Methodology v1.1.",
-  "calculated_utc": "2026-03-05T17:56:45.405741+00:00"
+  "calculated_utc": "2026-03-05T18:20:57.502034+00:00"
 }

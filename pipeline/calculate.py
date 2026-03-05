@@ -193,15 +193,17 @@ def append_to_index(result: dict, output_path: Path):
         writer = csv.writer(f)
         if write_header:
             writer.writerow([
-                "publication_date", "end_date", "window_days",
-                "index_name", "index_value", "n_observations", "valid_days",
-                "low_confidence", "min", "max", "mean", "stdev",
-                "ccir_version", "calculated_utc",
+                "publication_date", "window_start", "window_end",
+                "index_name", "cri_h100", "total_observations", "valid_days",
+                "low_confidence", "obs_min", "obs_max", "obs_mean", "obs_stdev",
+                "methodology_version", "calculated_utc",
             ])
+        end   = datetime.strptime(result["end_date"], "%Y-%m-%d")
+        start = end - timedelta(days=result["window_days"] - 1)
         writer.writerow([
             datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+            start.strftime("%Y-%m-%d"),
             result["end_date"],
-            result["window_days"],
             result.get("index_name", "CRI-H100"),
             result["index_value"],
             result.get("n_observations", 0),
