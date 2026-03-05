@@ -3,7 +3,7 @@
   "index_name": "CRI-A100",
   "model_id": "a100-sxm-us",
   "collection_date": "2026-03-05",
-  "collected_utc": "2026-03-05T17:48:39.518400+00:00",
+  "collected_utc": "2026-03-05T19:30:44.245057+00:00",
   "source": "vast.ai public API",
   "target_gpu": "A100 SXM",
   "geography": "US",
@@ -31,9 +31,9 @@
     "n": 0
   },
   "provenance": {
-    "output_file": "C:\\Users\\19136\\CCIR\\data\\a100-sxm-us\\2026-03-05.csv",
+    "output_file": "/home/runner/work/cri-h100/cri-h100/data/a100-sxm-us/2026-03-05.csv",
     "sha256": "d9b83616c0cef3f462ee996ebd72ab8f09d73eb169eb1da6523b927341ef11e1",
-    "archive_sha256": "0f3b2cbdf1939c9dd1bcd994e7887253c6d332f256c46f5e13d03c33d9f9546a"
+    "archive_sha256": "a9f77d619b311f2057b72b0a0a9c02144690fc64125cd5e2017a57de2e6877fa"
   },
   "low_confidence": true,
   "low_confidence_reason": "fewer than 10 qualifying observations"
