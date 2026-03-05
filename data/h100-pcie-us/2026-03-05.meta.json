@@ -1,0 +1,40 @@
+{
+  "ccir_version": "1.1.0",
+  "index_name": "CRI-H100-PCIe",
+  "model_id": "h100-pcie-us",
+  "collection_date": "2026-03-05",
+  "collected_utc": "2026-03-05T17:48:39.548943+00:00",
+  "source": "vast.ai public API",
+  "target_gpu": "H100 PCIE",
+  "geography": "US",
+  "filters": {
+    "min_reliability": 0.9,
+    "min_gpus": 1,
+    "max_days_unchanged": 7
+  },
+  "counts": {
+    "api_returned": 3,
+    "removed_rented": 0,
+    "removed_geography": 3,
+    "removed_reliability": 0,
+    "removed_min_gpus": 0,
+    "removed_stale": 0,
+    "removed_invalid_price": 0,
+    "final_observations": 0
+  },
+  "price_summary": {
+    "min": null,
+    "max": null,
+    "mean": null,
+    "median": null,
+    "stdev": null,
+    "n": 0
+  },
+  "provenance": {
+    "output_file": "C:\\Users\\19136\\CCIR\\data\\h100-pcie-us\\2026-03-05.csv",
+    "sha256": "d9b83616c0cef3f462ee996ebd72ab8f09d73eb169eb1da6523b927341ef11e1",
+    "archive_sha256": "0f3b2cbdf1939c9dd1bcd994e7887253c6d332f256c46f5e13d03c33d9f9546a"
+  },
+  "low_confidence": true,
+  "low_confidence_reason": "fewer than 10 qualifying observations"
+}

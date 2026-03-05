@@ -1,0 +1,40 @@
+{
+  "ccir_version": "1.1.0",
+  "index_name": "CRI-H200-NVL",
+  "model_id": "h200-nvl-us",
+  "collection_date": "2026-03-05",
+  "collected_utc": "2026-03-05T17:48:39.545247+00:00",
+  "source": "vast.ai public API",
+  "target_gpu": "H200 NVL",
+  "geography": "US",
+  "filters": {
+    "min_reliability": 0.9,
+    "min_gpus": 1,
+    "max_days_unchanged": 7
+  },
+  "counts": {
+    "api_returned": 7,
+    "removed_rented": 0,
+    "removed_geography": 6,
+    "removed_reliability": 0,
+    "removed_min_gpus": 0,
+    "removed_stale": 0,
+    "removed_invalid_price": 0,
+    "final_observations": 1
+  },
+  "price_summary": {
+    "min": 1.4209,
+    "max": 1.4209,
+    "mean": 1.4209,
+    "median": 1.4209,
+    "stdev": null,
+    "n": 1
+  },
+  "provenance": {
+    "output_file": "C:\\Users\\19136\\CCIR\\data\\h200-nvl-us\\2026-03-05.csv",
+    "sha256": "248d787a526925384eb3d2b6144cb943508644f55e7ec3ac0101712ff18b727b",
+    "archive_sha256": "0f3b2cbdf1939c9dd1bcd994e7887253c6d332f256c46f5e13d03c33d9f9546a"
+  },
+  "low_confidence": true,
+  "low_confidence_reason": "fewer than 10 qualifying observations"
+}
