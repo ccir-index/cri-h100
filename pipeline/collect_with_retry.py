@@ -28,7 +28,7 @@ from pathlib import Path
 # Configuration
 # ---------------------------------------------------------------------------
 
-MIN_OBSERVATIONS   = 10    # Threshold — below this, retry
+MIN_OBSERVATIONS   = 8     # Threshold — below this, retry
 MAX_RETRIES        = 3     # Maximum additional attempts after the first run
 RETRY_WAIT_MINUTES = 30    # Wait between retries
 

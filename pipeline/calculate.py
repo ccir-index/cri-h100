@@ -26,7 +26,7 @@ from pathlib import Path
 
 OUTLIER_SIGMA        = 2.5
 WINDOW_DAYS          = 7
-MIN_OBSERVATIONS_DAY = 10    # Minimum to include a day in window
+MIN_OBSERVATIONS_DAY = 8     # Minimum to include a day in window
 MIN_VALID_DAYS       = 3     # Minimum valid days to publish; else low-confidence flag
 
 DATA_DIR       = Path("data")
