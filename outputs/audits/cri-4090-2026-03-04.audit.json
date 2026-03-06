@@ -1,0 +1,80 @@
+{
+  "ccir_version": "1.1.1",
+  "index_name": "CRI-4090",
+  "end_date": "2026-03-04",
+  "window_days": 7,
+  "index_value": 0.4007,
+  "n_observations": 102,
+  "valid_days": 6,
+  "low_confidence": false,
+  "low_confidence_reason": null,
+  "summary": {
+    "min": 0.1542,
+    "max": 0.6696,
+    "mean": 0.406,
+    "stdev": 0.0875
+  },
+  "daily": [
+    {
+      "date": "2026-02-26",
+      "status": "missing",
+      "n": 0
+    },
+    {
+      "date": "2026-02-27",
+      "status": "included",
+      "n_raw": 18,
+      "n_removed": 0,
+      "n_used": 18,
+      "daily_median": 0.4011,
+      "daily_mean": 0.4222
+    },
+    {
+      "date": "2026-02-28",
+      "status": "included",
+      "n_raw": 11,
+      "n_removed": 0,
+      "n_used": 11,
+      "daily_median": 0.4015,
+      "daily_mean": 0.4486
+    },
+    {
+      "date": "2026-03-01",
+      "status": "included",
+      "n_raw": 31,
+      "n_removed": 2,
+      "n_used": 29,
+      "daily_median": 0.4007,
+      "daily_mean": 0.3902
+    },
+    {
+      "date": "2026-03-02",
+      "status": "included",
+      "n_raw": 17,
+      "n_removed": 1,
+      "n_used": 16,
+      "daily_median": 0.4007,
+      "daily_mean": 0.3962
+    },
+    {
+      "date": "2026-03-03",
+      "status": "included",
+      "n_raw": 14,
+      "n_removed": 0,
+      "n_used": 14,
+      "daily_median": 0.4006,
+      "daily_mean": 0.4357
+    },
+    {
+      "date": "2026-03-04",
+      "status": "included",
+      "n_raw": 15,
+      "n_removed": 1,
+      "n_used": 14,
+      "daily_median": 0.4011,
+      "daily_mean": 0.3655
+    }
+  ],
+  "methodology": "Trailing 7-day median $/GPU-hour, outlier removal at 2.5 sigma. See CCIR Methodology v1.1.1.",
+  "calculated_utc": "2026-03-06T05:19:21.293306+00:00"
+}

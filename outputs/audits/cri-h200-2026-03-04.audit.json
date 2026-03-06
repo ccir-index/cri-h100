@@ -1,0 +1,74 @@
+{
+  "ccir_version": "1.1.1",
+  "index_name": "CRI-H200",
+  "end_date": "2026-03-04",
+  "window_days": 7,
+  "index_value": 2.3237,
+  "n_observations": 38,
+  "valid_days": 4,
+  "low_confidence": false,
+  "low_confidence_reason": null,
+  "summary": {
+    "min": 1.8854,
+    "max": 2.3333,
+    "mean": 2.2213,
+    "stdev": 0.1443
+  },
+  "daily": [
+    {
+      "date": "2026-02-26",
+      "status": "missing",
+      "n": 0
+    },
+    {
+      "date": "2026-02-27",
+      "status": "low_confidence",
+      "n_raw": 6,
+      "n_used": 0
+    },
+    {
+      "date": "2026-02-28",
+      "status": "low_confidence",
+      "n_raw": 6,
+      "n_used": 0
+    },
+    {
+      "date": "2026-03-01",
+      "status": "included",
+      "n_raw": 11,
+      "n_removed": 0,
+      "n_used": 11,
+      "daily_median": 2.3237,
+      "daily_mean": 2.255
+    },
+    {
+      "date": "2026-03-02",
+      "status": "included",
+      "n_raw": 9,
+      "n_removed": 0,
+      "n_used": 9,
+      "daily_median": 2.0695,
+      "daily_mean": 2.1427
+    },
+    {
+      "date": "2026-03-03",
+      "status": "included",
+      "n_raw": 9,
+      "n_removed": 0,
+      "n_used": 9,
+      "daily_median": 2.3237,
+      "daily_mean": 2.2395
+    },
+    {
+      "date": "2026-03-04",
+      "status": "included",
+      "n_raw": 9,
+      "n_removed": 0,
+      "n_used": 9,
+      "daily_median": 2.3237,
+      "daily_mean": 2.2403
+    }
+  ],
+  "methodology": "Trailing 7-day median $/GPU-hour, outlier removal at 2.5 sigma. See CCIR Methodology v1.1.1.",
+  "calculated_utc": "2026-03-06T05:18:49.296061+00:00"
+}

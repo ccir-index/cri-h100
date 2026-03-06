@@ -1,4 +1,4 @@
-name: CRI-H100 Weekly Calculation
+name: CRI Weekly Calculation
 
 on:
   workflow_dispatch:        # Manual trigger only for now
@@ -36,8 +36,14 @@ jobs:
           echo "end_date=$END_DATE" >> $GITHUB_OUTPUT
           echo "End date: $END_DATE"
 
-      - name: Run calculation
-        run: python pipeline/calculate.py --end-date ${{ steps.date.outputs.end_date }}
+      - name: Run calculation — CRI-H100
+        run: python pipeline/calculate.py --model h100-sxm-us --end-date ${{ steps.date.outputs.end_date }}
+
+      - name: Run calculation — CRI-A100
+        run: python pipeline/calculate.py --model a100-sxm-us --end-date ${{ steps.date.outputs.end_date }}
+
+      - name: Run calculation — CRI-L40S
+        run: python pipeline/calculate.py --model l40s-us --end-date ${{ steps.date.outputs.end_date }}
 
       - name: Check for new output
         id: changes
@@ -50,13 +56,21 @@ jobs:
           git config user.name "CCIR Pipeline"
           git config user.email "research@ccir.io"
           git add outputs/
-          git commit -m "[calculate] ${{ steps.date.outputs.end_date }} -- CRI-H100 weekly publication"
+          git commit -m "[calculate] ${{ steps.date.outputs.end_date }} -- CRI-H100 / CRI-A100 / CRI-L40S weekly publication"
           git push origin main
 
-      - name: Print result
+      - name: Print results
         run: |
           echo "========================================"
-          echo "CRI-H100 publication complete"
+          echo "CRI weekly publication complete"
           echo "End date: ${{ steps.date.outputs.end_date }}"
+          echo ""
+          echo "--- CRI-H100 ---"
           cat outputs/cri-h100-index.csv
+          echo ""
+          echo "--- CRI-A100 ---"
+          cat outputs/cri-a100-index.csv 2>/dev/null || echo "(no output yet)"
+          echo ""
+          echo "--- CRI-L40S ---"
+          cat outputs/cri-l40s-index.csv 2>/dev/null || echo "(no output yet)"
           echo "========================================"

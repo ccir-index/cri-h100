@@ -2,7 +2,7 @@
 CRI-H100 Index Calculator
 =========================
 Computes the weekly CRI-H100 index value from daily filtered snapshots.
-Applies outlier removal per CCIR Methodology v1.1.
+Applies outlier removal per CCIR Methodology v1.1.1.
 Appends result to the published index series CSV.
 
 Usage:
@@ -21,7 +21,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 # ---------------------------------------------------------------------------
-# Constants — per CCIR Methodology v1.1
+# Constants — per CCIR Methodology v1.1.1
 # ---------------------------------------------------------------------------
 
 OUTLIER_SIGMA        = 2.5
@@ -72,7 +72,7 @@ def load_daily_meta(model_dir: Path, date_str: str):
         return json.load(f)
 
 # ---------------------------------------------------------------------------
-# Outlier removal — per CCIR Methodology v1.1
+# Outlier removal — per CCIR Methodology v1.1.1
 # ---------------------------------------------------------------------------
 
 def remove_outliers(prices: list, sigma: float = OUTLIER_SIGMA):
@@ -159,7 +159,7 @@ def calculate(model_dir: Path, end_date: str, window_days: int = WINDOW_DAYS,
     low_conf_why = f"only {valid_days} valid days in {window_days}-day window" if low_conf else None
 
     return {
-        "ccir_version":   "1.1.0",
+        "ccir_version":   "1.1.1",
         "index_name":     index_name,
         "end_date":       end_date,
         "window_days":    window_days,
@@ -177,7 +177,7 @@ def calculate(model_dir: Path, end_date: str, window_days: int = WINDOW_DAYS,
         "daily": daily_summaries,
         "methodology": f"Trailing {window_days}-day median $/GPU-hour, "
                        f"outlier removal at {OUTLIER_SIGMA} sigma. "
-                       f"See CCIR Methodology v1.1.",
+                       f"See CCIR Methodology v1.1.1.",
         "calculated_utc": datetime.now(timezone.utc).isoformat(),
     }
 
@@ -194,7 +194,7 @@ def append_to_index(result: dict, output_path: Path):
         if write_header:
             writer.writerow([
                 "publication_date", "window_start", "window_end",
-                "index_name", "cri_h100", "total_observations", "valid_days",
+                "index_name", "index_value", "total_observations", "valid_days",
                 "low_confidence", "obs_min", "obs_max", "obs_mean", "obs_stdev",
                 "methodology_version", "calculated_utc",
             ])
@@ -213,7 +213,7 @@ def append_to_index(result: dict, output_path: Path):
             result.get("summary", {}).get("max"),
             result.get("summary", {}).get("mean"),
             result.get("summary", {}).get("stdev"),
-            result.get("ccir_version", "1.1.0"),
+            result.get("ccir_version", "1.1.1"),
             result.get("calculated_utc"),
         ])
     print(f"  Index updated: {output_path}")

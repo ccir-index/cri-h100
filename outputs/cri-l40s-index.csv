@@ -1,0 +1,2 @@
+publication_date,window_start,window_end,index_name,index_value,total_observations,valid_days,low_confidence,obs_min,obs_max,obs_mean,obs_stdev,methodology_version,calculated_utc
+2026-03-06,2026-02-26,2026-03-04,CRI-L40S,0.937,83,6,False,0.4668,1.2074,0.8866,0.2878,1.1.1,2026-03-06T05:18:15.399719+00:00

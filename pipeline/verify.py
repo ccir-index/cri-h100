@@ -32,10 +32,10 @@ import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 
-# Must match CCIR Methodology v1.1 exactly
+# Must match CCIR Methodology v1.1.1 exactly
 OUTLIER_SIGMA        = 2.5
 WINDOW_DAYS          = 7
-MIN_OBSERVATIONS_DAY = 10
+MIN_OBSERVATIONS_DAY = 8
 
 DATA_DIR      = Path("data")
 INDEX_OUTPUT  = Path("outputs/cri-h100-index.csv")

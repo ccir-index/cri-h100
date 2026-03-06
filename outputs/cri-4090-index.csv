@@ -1,0 +1,2 @@
+publication_date,window_start,window_end,index_name,index_value,total_observations,valid_days,low_confidence,obs_min,obs_max,obs_mean,obs_stdev,methodology_version,calculated_utc
+2026-03-06,2026-02-26,2026-03-04,CRI-4090,0.4007,102,6,False,0.1542,0.6696,0.406,0.0875,1.1.1,2026-03-06T05:19:21.293306+00:00

@@ -1,2 +1,3 @@
 publication_date,window_start,window_end,index_name,cri_h100,total_observations,valid_days,low_confidence,obs_min,obs_max,obs_mean,obs_stdev,methodology_version,calculated_utc
 2026-03-05,2026-02-27,2026-03-05,CRI-H100,1.6021,28,2,True,1.537,2.2689,1.8094,0.2833,1.1.0,2026-03-05T18:20:57.502034+00:00
+2026-03-06,2026-02-26,2026-03-04,CRI-H100,1.735,44,4,False,1.4447,2.2689,1.808,0.2734,1.1.1,2026-03-06T05:16:02.498790+00:00
