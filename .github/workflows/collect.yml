@@ -1,7 +1,10 @@
-﻿name: CRI Daily Collection
+name: CRI Daily Collection
 
 on:
   schedule:
+    # Runs at 14:00 and 15:00 UTC daily.
+    # Local Task Scheduler is set to 12:00 UTC (7 AM CST / 8 AM CDT) with --auto-push,
+    # giving GHA a 2-hour window to find existing data already in the repo.
     - cron: '0 14,15 * * *'
   workflow_dispatch:
 
@@ -32,13 +35,45 @@ jobs:
         id: date
         run: echo "date=$(date -u +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
-      - name: Run collection (with auto-retry if H100 SXM obs < 10)
+      - name: Snapshot existing observation count
+        id: existing
+        run: |
+          python -c "
+          import json
+          date = '${{ steps.date.outputs.date }}'
+          try:
+              with open(f'data/h100-sxm-us/{date}.meta.json') as f:
+                  n = json.load(f).get('price_summary', {}).get('n', 0)
+          except Exception:
+              n = 0
+          print(f'n={n}')
+          " >> $GITHUB_OUTPUT
+          echo "Existing obs count: $(grep 'n=' $GITHUB_OUTPUT | tail -1)"
+
+      - name: Run collection (with auto-retry if H100 SXM obs < 8)
         run: python pipeline/collect_with_retry.py --date ${{ steps.date.outputs.date }}
 
-      - name: Check for new data
+      - name: Check for new data and compare obs count
         id: changes
         run: |
-          git diff --quiet data/ && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+          python -c "
+          import json, subprocess
+          date = '${{ steps.date.outputs.date }}'
+          existing_n = int('${{ steps.existing.outputs.n }}')
+          try:
+              with open(f'data/h100-sxm-us/{date}.meta.json') as f:
+                  new_n = json.load(f).get('price_summary', {}).get('n', 0)
+          except Exception:
+              new_n = 0
+          git_changed = subprocess.run(
+              ['git', 'diff', '--quiet', 'data/'],
+              capture_output=True
+          ).returncode != 0
+          # Push only if files changed AND new count is at least as good as existing
+          should_push = git_changed and new_n >= existing_n
+          print(f'changed={str(should_push).lower()}')
+          print(f'Existing obs: {existing_n} | New obs: {new_n} | Push: {should_push}')
+          " >> $GITHUB_OUTPUT
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
@@ -48,3 +83,8 @@ jobs:
           git add data/
           git commit -m "[collect] ${{ steps.date.outputs.date }} -- daily snapshot (all models)"
           git push origin main
+
+      - name: Skip summary (if no push)
+        if: steps.changes.outputs.changed == 'false'
+        run: |
+          echo "No push — either no data changes or local run already captured a higher obs count."

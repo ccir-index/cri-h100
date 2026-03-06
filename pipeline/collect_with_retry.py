@@ -10,10 +10,14 @@ meta.json with a fresh collection (same behaviour as running collect.py
 manually a second time).
 
 Usage:
-    python collect_with_retry.py [--date YYYY-MM-DD] [--data-dir PATH]
+    python collect_with_retry.py [--date YYYY-MM-DD] [--data-dir PATH] [--auto-push]
 
-Typical use: replace your daily Task Scheduler / cron invocation of
-collect.py with this script. All arguments are passed through to collect.py.
+    --auto-push   After hitting threshold, git commit and push data/ to origin/main.
+                  Use for local Task Scheduler runs so the best dataset is always
+                  in the repo before the GitHub Actions workflow fires.
+
+Typical use: replace your daily Task Scheduler invocation of collect.py with
+this script, adding --auto-push so local data lands in the repo ahead of GHA.
 """
 
 import argparse
@@ -56,6 +60,24 @@ def run_collect(collect_script: Path, extra_args: list) -> int:
     return result.returncode
 
 
+def auto_push(repo_root: Path, date_str: str, n: int) -> None:
+    """Commit data/ and push to origin/main."""
+    print("\nAuto-push enabled — committing data/ to origin/main...")
+    cmds = [
+        ["git", "add", "data/"],
+        ["git", "commit", "-m",
+         f"[collect] {date_str} -- daily snapshot (local auto-push, {n} obs)"],
+        ["git", "push", "origin", "main"],
+    ]
+    for cmd in cmds:
+        result = subprocess.run(cmd, cwd=str(repo_root))
+        if result.returncode != 0:
+            print(f"WARNING: Command failed: {' '.join(cmd)}")
+            print("  Check PAT auth — run: git remote -v  and verify token is embedded in URL.")
+            return
+    print(f"✓ Pushed to origin/main ({n} obs)")
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -64,33 +86,37 @@ def main():
     parser = argparse.ArgumentParser(
         description="Run collect.py with automatic retry if H100 SXM obs < threshold"
     )
-    parser.add_argument("--date",     default=datetime.now(timezone.utc).strftime("%Y-%m-%d"))
-    parser.add_argument("--data-dir", default=None)
+    parser.add_argument("--date",      default=datetime.now(timezone.utc).strftime("%Y-%m-%d"))
+    parser.add_argument("--data-dir",  default=None)
+    parser.add_argument("--auto-push", action="store_true",
+                        help="Git commit and push data/ after successful collection")
     args, unknown = parser.parse_known_args()
 
     date_str = args.date
 
-    # Resolve paths — this script should live in the same directory as collect.py
-    script_dir    = Path(__file__).resolve().parent
+    # Resolve paths — this script should live in the pipeline/ subdirectory
+    script_dir     = Path(__file__).resolve().parent
+    repo_root      = script_dir.parent
     collect_script = script_dir / "collect.py"
 
     if not collect_script.exists():
         print(f"ERROR: collect.py not found at {collect_script}")
         sys.exit(1)
 
-    # data_dir: use --data-dir if provided, else collect.py's default
-    # (one level up from pipeline/ — i.e. CCIR/data)
+    # data_dir: use --data-dir if provided, else repo_root/data
     if args.data_dir:
-        data_dir = Path(args.data_dir)
+        data_dir   = Path(args.data_dir)
         extra_args = ["--date", date_str, "--data-dir", str(data_dir)]
     else:
-        data_dir = script_dir.parent / "data"
+        data_dir   = repo_root / "data"
         extra_args = ["--date", date_str]
 
     # Pass any extra unknown args through to collect.py
     extra_args += unknown
 
     attempt = 0
+    threshold_met = False
+
     while True:
         attempt += 1
         print(f"\n{'=' * 60}")
@@ -107,6 +133,7 @@ def main():
 
         if n >= MIN_OBSERVATIONS:
             print(f"✓ Threshold met ({n} >= {MIN_OBSERVATIONS}). Done.")
+            threshold_met = True
             break
 
         if attempt > MAX_RETRIES:
@@ -123,6 +150,15 @@ def main():
               f"{datetime.now().strftime('%H:%M:%S')} + {RETRY_WAIT_MINUTES}m")
 
         time.sleep(RETRY_WAIT_MINUTES * 60)
+
+    # Auto-push: only on threshold success. Low-confidence data is intentionally
+    # left for the GHA workflow to handle and flag.
+    if args.auto_push:
+        if threshold_met:
+            auto_push(repo_root, date_str, n)
+        else:
+            print("\nAuto-push skipped — threshold not met. "
+                  "GHA workflow will handle low-confidence commit.")
 
 
 if __name__ == "__main__":
